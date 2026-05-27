@@ -37,7 +37,7 @@ def leggyakoribb_karakter(fajnev):
     with open(fajnev) as f:
         karakter = f.read()
     return Counter(karakter).most_common(1)[0][0]
-# ez még nem megy
+# Ez még nem megy
 #--------------------------
 '''
 Feladat: Leggyakoribb szám a szövegfájlban.
