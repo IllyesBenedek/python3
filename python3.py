@@ -37,6 +37,7 @@ def leggyakoribb_karakter(fajnev):
     with open(fajnev) as f:
         karakter = f.read()
     return Counter(karakter).most_common(1)[0][0]
+# ez még nem megy
 #--------------------------
 '''
 Feladat: Leggyakoribb szám a szövegfájlban.
@@ -51,7 +52,7 @@ def leggyakoribb_szam_a_fajlban(fajnev):
         if szamok.count(i) > szamok.count(str(legygakoribb)):
             legygakoribb = int(i)
     return legygakoribb
-
+# Ez még nem megy
 
 #--------------------------
 '''
