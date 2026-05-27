@@ -77,7 +77,14 @@ Az r_betuk_szama nevű függvény
 paraméterként egy fájlnevet kap és
 visszatér a fájlban levő 'r' betük számával.
 '''
-
+def r_betuk_szama(fajnev):   
+    with open(fajnev) as f:
+          tartalom = f.read()
+    db = 0
+    for i in tartalom:
+        if i == "r":
+            db += 1
+    return db
 
 
 #--------------------------
