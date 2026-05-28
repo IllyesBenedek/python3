@@ -162,8 +162,14 @@ Feladat: Páratlan számok száma egy szövegfájlban.
 Írj egy függvényt paratlan_szamok_szama_a_fajlban néven, amely visszatér egy szövegfájlban levő páratlan számok számával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
-
+def paratlan_szamok_szama_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        paratlanok = f.read().split()
+    parat = 0
+    for i in paratlanok:
+        if int(i) % 2 != 0:
+            parat += 1
+    return parat
 
 #--------------------------
 '''
@@ -178,7 +184,13 @@ A Negyzet osztály rendelkezik egy terulet() nevü metódussal,
     amely az osztály segítségével létrehozott objektum metódusaként 
         visszaadja az adott objektum területét.
 '''
-
+class Negyzet:
+    def __init__(self, a):
+        self.a = a
+    def kerulet(self):
+        return 4 * self.a
+    def terulet(self):
+        return self.a ** 2
 
 
 #--------------------------
