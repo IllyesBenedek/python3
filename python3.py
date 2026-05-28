@@ -199,7 +199,10 @@ A sorok_szama nevű függvény
 paraméterként egy fájlnevet kap és
 visszatér a fájlban levő sorok számával.
 '''
-
+def sorok_szama(fajnev):
+    with open(fajnev) as f:
+        sorok = f.readlines()
+    return len(sorok)
 
 
 #--------------------------
@@ -208,8 +211,13 @@ Feladat: Számok összege egy szövegfájlban.
 Írj egy függvényt szamok_osszege_a_fajlban néven amely visszatér egy szövegfájlban levő számok összegével.
 A függvény bemenő paramétere a fájl neve.
 '''
-
-
+def szamok_osszege_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        osszeg = f.read().split()
+    ossz = 0
+    for i in osszeg:
+        ossz += int(i)
+    return ossz
 
 #--------------------------
 '''
