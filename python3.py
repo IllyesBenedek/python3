@@ -225,7 +225,12 @@ Feladat: Első karakter a szövegfájlban
 Írj egy függvényt elso_karakter_a_fajlban néven, amely visszatér egy szövegfájl első karakterével.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def elso_karakter_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        string = f.read()
+    if string == "":
+        return None
+    return string[0]
 
 
 #--------------------------
@@ -235,7 +240,10 @@ paraméterként egy fájlnevet kap és
 visszatér a fájlban levő karakterek számával. 
 ('\n karakterekkel együtt')
 '''
-
+def karakterek_szama(fajnev):
+    with open(fajnev) as f:
+        karakter = f.read()
+    return len(karakter)
 
 
 #--------------------------
