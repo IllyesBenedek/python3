@@ -32,11 +32,14 @@ A leggyakoribb_karakter(fname) függvény
 paraméterként egy fájlnevet kap és
 visszatér a  fájlban leggyakrabban előforduló karakterrel.
 '''
-from collections import Counter
 def leggyakoribb_karakter(fajnev):
     with open(fajnev) as f:
         karakter = f.read()
-    return Counter(karakter).most_common(1)[0][0]
+    leggyakoribb = karakter[0]
+    for i in karakter:
+        if karakter.count(i) > karakter.count(leggyakoribb):
+            leggyakoribb = i
+    return leggyakoribb
 # Ez még nem megy
 #--------------------------
 '''
@@ -47,11 +50,11 @@ A függvény bemenő paramétere a fájl neve.
 def leggyakoribb_szam_a_fajlban(fajnev):
     with open(fajnev, "r") as f:
         szamok = f.read().split()
-    legygakoribb = int(szamok[0])
+    leggyakoribb = int(szamok[0])
     for i in szamok:
-        if szamok.count(i) > szamok.count(str(legygakoribb)):
-            legygakoribb = int(i)
-    return legygakoribb
+        if szamok.count(i) > szamok.count(str(leggyakoribb)):
+            leggyakoribb = int(i)
+    return leggyakoribb
 # Ez még nem megy
 
 #--------------------------
@@ -94,7 +97,14 @@ Feladat: Pozitívok egy szövegfájlból.
 Írj egy függvényt pozitiv_a_fajlbol néven, amely visszatér a szövegfájlban levő pozitiv számokkal mint listával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def pozitiv_a_fajlbol(fajnev):
+    with open(fajnev) as f:
+        pozitivok = f.read().split()
+    poz = []
+    for i in pozitivok:
+        if int(i) > 0:
+            poz.append(int(i))
+    return poz
 
 
 #--------------------------
@@ -110,7 +120,13 @@ A Kocka osztály rendelkezik egy felszin() nevü metódussal,
     amely az osztály segítségével létrehozott objektum metódusaként 
     visszaadja az adott objektum felszínét.
 '''
-
+class Kocka:
+    def __init__(self, a):
+        self.a = a
+    def terfogat(self):
+        return self.a ** 3
+    def felszin(self):
+        return 6 * self.a ** 2
 
 
 #--------------------------
@@ -119,7 +135,9 @@ Feladat: String fájlba írása
 A string_fajlba nevű függvény az első paraméterként kapott sztringet fájlba írja.
 A fájl nevét második paraméterként kapja meg a függvény.
 '''
-
+def string_fajlba(string, fajnev):
+    with open(fajnev, "w") as f:
+        f.write(string)
 
 
 #--------------------------
@@ -128,7 +146,14 @@ Feladat: Negatív számok száma egy szövegfájlban.
 Írj egy függvényt negativ_szamok_szama_a_fajlban néven, amely visszatér egy szövegfájlban levő negativ számok számával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def negativ_szamok_szama_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        negativok = f.read().split()
+    neg = 0
+    for i in negativok:
+        if int(i) < 0:
+            neg += 1
+    return neg
 
 
 #--------------------------
