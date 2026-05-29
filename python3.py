@@ -252,7 +252,14 @@ Feladat: Hárommal osztható számok a szövegfájlban.
 Írj egy függvényt harommal_oszthato_szamok_a_fajlban néven, amely visszatér a szövegfájlban levő hárommal osztható számok listájával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def harommal_oszthato_szamok_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        szamok = f.read().split()
+    harom = []
+    for i in szamok:
+        if int(i) % 3 == 0:
+            harom.append(int(i))
+    return harom
 
 
 #--------------------------
@@ -261,8 +268,15 @@ A leghosszabb_sor_hossza(fname) függvény
 paraméterként egy fájlnevet kap és
 visszatér a  fájlban levő leghosszabb sor hosszával.
 '''
-
-
+def leghosszabb_sor_hossza(fajnev):
+    with open(fajnev) as f:
+        sorok = f.readlines()
+    leghosszabb = sorok[0]
+    for i in sorok:
+        if len(i) > len(leghosszabb):
+            leghosszabb = i
+    return len(leghosszabb)
+# Ez még nem megy
 
 #--------------------------
 '''
@@ -270,7 +284,14 @@ A lorem_szavak_szama nevű függvény
 paraméterként egy fájlnevet kap és
 visszatér a  fájlban levő "lorem" szavak számával.
 '''
-
+def lorem_szavak_szama(fajnev):
+    with open(fajnev, "r") as f:
+        tartalom = f.read().split()
+    db = 0
+    for i in tartalom:
+        if "lorem" in i.lower():
+            db += 1
+    return db
 
 
 #--------------------------
@@ -279,7 +300,16 @@ Feladat: Legkisebb szám egy szövegfájlban.
 Írj egy függvényt legkisebb_szam_a_fajlban néven, amely visszatér egy szövegfájlban levő lekisebb számmal.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def legkisebb_szam_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        lista = f.read().split()
+    if lista == []:
+        return None
+    min = int(lista[0])
+    for i in lista:
+        if int(i) < min:
+            min = int(i)
+    return min
 
 
 #--------------------------
