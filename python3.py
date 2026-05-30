@@ -318,7 +318,10 @@ A szavak_szama nevű függvény
 paraméterként egy fájlnevet kap és
 visszatér a fájlban levő szavak számával.
 '''
-
+def szavak_szama(fajnev):
+    with open(fajnev, "r") as f:
+        szavak = f.read().split()
+    return len(szavak)
 
 
 #--------------------------
@@ -327,7 +330,14 @@ Feladat: Páratlanok egy szövegfájlból.
 Írj egy függvényt paratlanok_a_fajlbol néven, amely visszatér a szövegfájlban levő páratlan számokkal mint listával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def paratlanok_a_fajlbol(fajnev):
+    with open(fajnev) as f:
+        paratlanok = f.read().split()
+    parat = []
+    for i in paratlanok:
+        if int(i) % 2 != 0:
+            parat.append(int(i))
+    return parat
 
 
 #--------------------------
@@ -343,8 +353,14 @@ A Teglalap osztály rendelkezik egy terulet() nevü metódussal,
     amely az osztály segítségével létrehozott objektum metódusaként 
         visszaadja az adott objektum területét.
 '''
-
-
+class Teglalap:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    def kerulet(self):
+        return 2 * (self.a + self.b)
+    def terulet(self):
+        return self.a * self.b
 
 #--------------------------
 '''
@@ -352,7 +368,14 @@ Feladat: Párosok egy szövegfájlból.
 Írj egy függvényt parosok_a_fajlbol néven, amely visszatér a szövegfájlban levő páros számokkal mint listával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def parosok_a_fajlbol(fajnev):
+    with open(fajnev) as f:
+        parosok = f.read().split()
+    par = []
+    for i in parosok:
+        if int(i) % 2 == 0:
+            par.append(int(i))
+    return par
 
 
 #--------------------------
@@ -362,7 +385,14 @@ A neggyel_oszthato_szamok_a_fajlban függvény
 egy függvényt neggyel_oszthato_szamok_a_fajlban néven, amely visszatér a szövegfájlban levő neggyel osztható számok listájával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def neggyel_oszthato_szamok_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        szamok = f.read().split()
+    negy = []
+    for i in szamok:
+        if int(i) % 4 == 0:
+            negy.append(int(i))
+    return negy
 
 
 #--------------------------
@@ -371,7 +401,14 @@ Feladat: Páros számok száma egy szövegfájlban.
 Írj egy függvényt paros_szamok_szama_a_fajlban néven, amely visszatér egy szövegfájlban levő páros számok számával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def paros_szamok_szama_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        parosok = f.read().split()
+    par = 0
+    for i in parosok:
+        if int(i) % 2 == 0:
+            par += 1
+    return par
 
 
 #--------------------------
@@ -380,7 +417,14 @@ Feladat: Negatívok egy szövegfájlból.
 Írj egy függvényt negativok_a_fajlbol néven, amely visszatér a szövegfájlban levő negativ számokkal mint listával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def negativok_a_fajlbol(fajnev):
+    with open(fajnev) as f:
+        szamok = f.read().split()
+    neg = []
+    for i in szamok:
+        if int(i) < 0:
+            neg.append(int(i))
+    return neg
 
 
 #--------------------------
@@ -389,7 +433,15 @@ Feladat: Számok átlaga egy szövegfájlban.
 Írj egy függvényt szamok_atlaga_a_fajlban néven, amely visszatér egy szövegfájlban levő számok átlagával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def szamok_atlaga_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        lista = f.read().split()
+    if lista == []:
+        return 0
+    atlag = 0
+    for i in lista:
+        atlag += int(i)
+    return atlag / len(lista)
 
 
 #--------------------------
@@ -398,7 +450,14 @@ Feladat: Pozitív számok száma egy szövegfájlban.
 Írj egy függvényt pozitiv_szamok_szama_a_fajlban néven, amely visszatér egy szövegfájlban levő pozitiv számok számával.
 A függvény bemenő paramétere a fájl neve.
 '''
-
+def pozitiv_szamok_szama_a_fajlban(fajnev):
+    with open(fajnev) as f:
+        szam = f.read().split()
+    poz = 0
+    for i in szam:
+        if int(i) > 0:
+            poz += 1
+    return poz
 
 
 #======================================================================================================================C:\Users\bened\Downloads\python3
